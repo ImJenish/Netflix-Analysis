@@ -105,6 +105,19 @@ FROM netflix
 WHERE cast LIKE 'Junko Takeuchi%'
   AND release_year > YEAR(CURDATE()) - 15;
 
+-- 14. Find the number of movies in each genre
 
+SELECT 
+    listed_in,
+    COUNT(*) AS total_movies
+FROM netflix
+WHERE type = 'Movie'
+GROUP BY listed_in;
+
+-- 15. List all content (Movies/TV Shows) with rating TV-MA
+
+SELECT *
+FROM netflix
+WHERE rating = 'TV-MA';
 
 
